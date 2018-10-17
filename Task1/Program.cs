@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task1
 {
@@ -16,31 +11,14 @@ namespace Task1
     // Exception filters catch (Exception e) when (e.Field == someValue) { }
     // anonymous type is READ ONLY
     // tuples read/write, work with generic Dictionary<int,(int, string)>
+
     class Program
     {
         static void Main(string[] args)
         {
-            ReflectionCall("Method");
+            MethodInvoker.ReflectionCallStatic("Method");
 
             Console.ReadKey();
-        }
-
-        public static void ReflectionCall(string methodName)
-        {
-            Assembly currentAssembly = Assembly.GetExecutingAssembly();
-
-            foreach (var type in currentAssembly.DefinedTypes)
-            {
-                MethodInfo method = type.GetDeclaredMethod(methodName);
-
-                if(method != null 
-                    && method.IsPublic 
-                    && method.IsStatic 
-                    && method.ReturnType == typeof(void))
-                {
-                    method.Invoke(null, null);
-                }
-            }
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Generics.cs" />
     <Compile Include="LambdaExpressions.cs" />
     <Compile Include="LocalMethods.cs" />
+    <Compile Include="MethodInvoker.cs" />
     <Compile Include="PatternMatching.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
