@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2_DB", "Task2_DB\Task2_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1BFDAF48-65C3-488C-9225-E2AFAE040092}"
 	ProjectSection(SolutionItems) = preProject
+		CreateShopDB.sql = CreateShopDB.sql
+		FillCategories.sql = FillCategories.sql
+		FillMarks.sql = FillMarks.sql
+		FillOrderDetails.sql = FillOrderDetails.sql
+		FillOrders.sql = FillOrders.sql
+		FillProducts.sql = FillProducts.sql
+		FillStates.sql = FillStates.sql
+		FillUsers.sql = FillUsers.sql
 		SqlQueries.sql = SqlQueries.sql
 	EndProjectSection
 EndProject

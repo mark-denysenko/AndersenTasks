@@ -1,0 +1,266 @@
+﻿--USE [master]
+--GO
+--/****** Object:  Database [ShopDB]    Script Date: 19.10.2018 12:31:26 ******/
+--CREATE DATABASE [ShopDB]
+-- CONTAINMENT = NONE
+-- ON  PRIMARY 
+--( NAME = N'ShopDB', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\ShopDB.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+-- LOG ON 
+--( NAME = N'ShopDB_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\ShopDB_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+--GO
+--ALTER DATABASE [ShopDB] SET COMPATIBILITY_LEVEL = 140
+--GO
+--IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+--begin
+--EXEC [ShopDB].[dbo].[sp_fulltext_database] @action = 'enable'
+--end
+--GO
+--ALTER DATABASE [ShopDB] SET ANSI_NULL_DEFAULT OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET ANSI_NULLS OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET ANSI_PADDING OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET ANSI_WARNINGS OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET ARITHABORT OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET AUTO_CLOSE OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET AUTO_SHRINK OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET AUTO_UPDATE_STATISTICS ON 
+--GO
+--ALTER DATABASE [ShopDB] SET CURSOR_CLOSE_ON_COMMIT OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET CURSOR_DEFAULT  GLOBAL 
+--GO
+--ALTER DATABASE [ShopDB] SET CONCAT_NULL_YIELDS_NULL OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET NUMERIC_ROUNDABORT OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET QUOTED_IDENTIFIER OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET RECURSIVE_TRIGGERS OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET  DISABLE_BROKER 
+--GO
+--ALTER DATABASE [ShopDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET DATE_CORRELATION_OPTIMIZATION OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET TRUSTWORTHY OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET PARAMETERIZATION SIMPLE 
+--GO
+--ALTER DATABASE [ShopDB] SET READ_COMMITTED_SNAPSHOT OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET HONOR_BROKER_PRIORITY OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET RECOVERY SIMPLE 
+--GO
+--ALTER DATABASE [ShopDB] SET  MULTI_USER 
+--GO
+--ALTER DATABASE [ShopDB] SET PAGE_VERIFY CHECKSUM  
+--GO
+--ALTER DATABASE [ShopDB] SET DB_CHAINING OFF 
+--GO
+--ALTER DATABASE [ShopDB] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+--GO
+--ALTER DATABASE [ShopDB] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+--GO
+--ALTER DATABASE [ShopDB] SET DELAYED_DURABILITY = DISABLED 
+--GO
+--ALTER DATABASE [ShopDB] SET QUERY_STORE = OFF
+--GO
+--USE [ShopDB]
+--GO
+--/****** Object:  Table [dbo].[Categories]    Script Date: 19.10.2018 12:31:26 ******/
+--SET ANSI_NULLS ON
+--GO
+--SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categories](
+	[CategoryId] [int] NOT NULL,
+	[CategoryName] [nvarchar](50) NULL,
+	[ParentId] [int] NOT NULL,
+ CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
+(
+	[CategoryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Marks]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Marks](
+	[MarkId] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NULL,
+	[ProductId] [int] NULL,
+	[Mark] [tinyint] NULL,
+ CONSTRAINT [PK_Marks] PRIMARY KEY CLUSTERED 
+(
+	[MarkId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[OrderDetails]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrderDetails](
+	[OrderId] [int] NOT NULL,
+	[ProductId] [int] NOT NULL,
+	[Quantity] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Orders]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Orders](
+	[OrderId] [int] NOT NULL,
+	[UserId] [int] NOT NULL,
+	[OrderDate] [datetime] NULL,
+	[ShipAddress] [nvarchar](50) NULL,
+	[StateId] [int] NULL,
+ CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
+(
+	[OrderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductId] [int] NOT NULL,
+	[ProductName] [nvarchar](50) NOT NULL,
+	[Description] [nvarchar](max) NULL,
+	[CategoryId] [int] NULL,
+	[UnitPrice] [money] NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[ProductId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[States]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[States](
+	[StateId] [int] NOT NULL,
+	[Name] [nvarchar](20) NULL,
+ CONSTRAINT [PK_States] PRIMARY KEY CLUSTERED 
+(
+	[StateId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserId] [int] NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Phone] [nvarchar](20) NULL,
+	[Email] [nvarchar](30) NULL,
+	[Address] [nvarchar](50) NULL,
+	[Login] [nvarchar](50) NULL,
+	[PasswordHash] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Categories] ADD  CONSTRAINT [DF_Categories_ParentId]  DEFAULT ((0)) FOR [ParentId]
+GO
+ALTER TABLE [dbo].[OrderDetails] ADD  CONSTRAINT [DF_OrderDetails_Quantity]  DEFAULT ((1)) FOR [Quantity]
+GO
+ALTER TABLE [dbo].[Marks]  WITH CHECK ADD  CONSTRAINT [FK_Marks_Products] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([ProductId])
+GO
+ALTER TABLE [dbo].[Marks] CHECK CONSTRAINT [FK_Marks_Products]
+GO
+ALTER TABLE [dbo].[Marks]  WITH CHECK ADD  CONSTRAINT [FK_Marks_Users] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([UserId])
+GO
+ALTER TABLE [dbo].[Marks] CHECK CONSTRAINT [FK_Marks_Users]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Orders] FOREIGN KEY([OrderId])
+REFERENCES [dbo].[Orders] ([OrderId])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Orders]
+GO
+ALTER TABLE [dbo].[OrderDetails]  WITH CHECK ADD  CONSTRAINT [FK_OrderDetails_Products] FOREIGN KEY([ProductId])
+REFERENCES [dbo].[Products] ([ProductId])
+GO
+ALTER TABLE [dbo].[OrderDetails] CHECK CONSTRAINT [FK_OrderDetails_Products]
+GO
+ALTER TABLE [dbo].[Orders]  WITH NOCHECK ADD  CONSTRAINT [FK_Orders_States] FOREIGN KEY([StateId])
+REFERENCES [dbo].[States] ([StateId])
+GO
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_States]
+GO
+ALTER TABLE [dbo].[Orders]  WITH NOCHECK ADD  CONSTRAINT [FK_Orders_Users] FOREIGN KEY([UserId])
+REFERENCES [dbo].[Users] ([UserId])
+GO
+ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_Users]
+GO
+ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_Products_Categories] FOREIGN KEY([CategoryId])
+REFERENCES [dbo].[Categories] ([CategoryId])
+GO
+ALTER TABLE [dbo].[Products] CHECK CONSTRAINT [FK_Products_Categories]
+GO
+/****** Object:  StoredProcedure [dbo].[GetSumFromPreviousMonth]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[GetSumFromPreviousMonth]
+AS
+DECLARE @beginTime DATETIME
+DECLARE @endTime DATETIME
+SET @beginTime = DATEADD(month, DATEDIFF(month, 0, GETDATE()) - 1, 0)
+SET @endTime = GETDATE()
+DECLARE @result FLOAT
+EXEC @result = SumForTime @beginTime, @endTime
+GO
+/****** Object:  StoredProcedure [dbo].[SumForTime]    Script Date: 19.10.2018 12:31:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SumForTime]
+		@beginDate DATETIME,
+		@endDate DATETIME = NULL
+AS
+BEGIN
+	IF @endDate IS NULL
+		SET @endDate = GETDATE()
+
+	SELECT SUM(OrderDetails.Quantity * Products.UnitPrice) AS 'Total sum'
+	FROM Orders
+	RIGHT JOIN OrderDetails ON OrderDetails.OrderId = Orders.OrderId
+	LEFT JOIN Products ON OrderDetails.ProductId = Products.ProductId
+	WHERE Orders.OrderDate BETWEEN @beginDate AND @endDate
+END
+GO
+--USE [master]
+--GO
+--ALTER DATABASE [ShopDB] SET  READ_WRITE 
+--GO
