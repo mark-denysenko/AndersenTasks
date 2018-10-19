@@ -23,7 +23,7 @@
           <Property Name="Mark" Type="tinyint" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ShopDB.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\MARK\SOURCE\REPOS\INTERNSHIP\TASK2_DB\SHOPDB.MDF.dbo.OrderDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="OrderDetails">
           <Key>
             <PropertyRef Name="OrderId" />

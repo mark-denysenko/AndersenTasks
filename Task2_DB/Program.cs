@@ -88,9 +88,10 @@ namespace Task2_DB
 
             foreach (var rowInfo in query)
             {
-                Console.WriteLine("Sum: " + rowInfo.id + " (" + rowInfo.date + ") " + "sum: " + rowInfo.price);
+                Console.WriteLine("Orders: " + rowInfo.id + " (" + rowInfo.date + ") " + "sum: " + rowInfo.price);
             }
 
+            Console.WriteLine("Total sum: " + query.Sum(p => p.price).Value); 
         }
 
         public static void Task4(ShopDBEntities db)

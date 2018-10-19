@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8424fa12b22d4493ae0e2d22cf15f72f" Name="Diagram1">
-        <EntityTypeShape EntityType="ShopDBModel.Category" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Mark" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Order" Width="1.5" PointX="5.125" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Product" Width="1.5" PointX="2.875" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.State" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.User" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.OrderDetail" Width="1.5" PointX="5.125" PointY="4" IsExpanded="true" />
+      <Diagram DiagramId="03648b1d8f9a48438d863ad6f945535e" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopDBModel.Category" Width="1.5" PointX="5.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Mark" Width="1.5" PointX="0.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Order" Width="1.5" PointX="2.875" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Product" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.State" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.User" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.OrderDetail" Width="1.5" PointX="5.625" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="ShopDBModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="ShopDBModel.FK_Marks_Products" ManuallyRouted="false" />
         <AssociationConnector Association="ShopDBModel.FK_Marks_Users" ManuallyRouted="false" />
