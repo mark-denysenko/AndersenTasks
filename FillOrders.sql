@@ -1,5 +1,4 @@
-﻿USE [ShopDB]
-GO
+﻿
 
 INSERT INTO [dbo].[Orders]
            ([OrderId]

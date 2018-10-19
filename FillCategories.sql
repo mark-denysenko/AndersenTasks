@@ -1,6 +1,5 @@
 ﻿GO
 
-SELECT * FROM [dbo].[Categories]
 INSERT INTO [dbo].[Categories]
            ([CategoryId]
            ,[CategoryName]

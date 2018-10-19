@@ -1,6 +1,4 @@
-﻿USE [ShopDB]
-GO
-
+﻿
 INSERT INTO [dbo].[Users]
            ([UserId]
            ,[FirstName]
