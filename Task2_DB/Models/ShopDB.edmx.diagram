@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8424fa12b22d4493ae0e2d22cf15f72f" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopDBModel.Category" Width="1.5" PointX="0.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Mark" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Order" Width="1.5" PointX="5.125" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.Product" Width="1.5" PointX="2.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.State" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.User" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDBModel.OrderDetail" Width="1.5" PointX="5.125" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="ShopDBModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_Marks_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_Marks_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_Orders_States" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDBModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
