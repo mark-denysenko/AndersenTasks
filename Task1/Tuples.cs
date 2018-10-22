@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class Tuples
+    class Tuples : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("--- Tuples and nullable");
 

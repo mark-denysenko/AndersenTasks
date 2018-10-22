@@ -16,7 +16,9 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            MethodInvoker.ReflectionCallStatic("Method");
+            //MethodInvoker.ReflectionCallStatic("Method");
+
+            MethodInvoker.ReflectionCallNonStatic("Method");
 
             Console.ReadKey();
         }

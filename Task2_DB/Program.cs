@@ -66,17 +66,18 @@ namespace Task2_DB
         {
             Console.WriteLine(" --- Task 3 ---");
 
-            DateTime currentTime = DateTime.Now;
-            DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, 1);
-            endTime = currentTime;
-
-            DateTime startTime = new DateTime(currentTime.Year, currentTime.Month, 1).AddMonths(-1);
+            var endTime   =     DateTime.Now;
+            var startTime = new DateTime(endTime.Year, endTime.Month, 1).AddMonths(-1);
 
             Console.WriteLine("" + startTime + " - " + endTime);
 
             var query = from detail in db.OrderDetails
-                        where startTime <= detail.Order.OrderDate && detail.Order.OrderDate <= endTime
-                        select new { price = detail.Quantity * detail.Product.UnitPrice, date = detail.Order.OrderDate, id = detail.OrderId };//).Sum(o => o.price);
+                        where startTime <= detail.Order.OrderDate 
+                           && detail.Order.OrderDate <= endTime
+                        select new {
+                            price = detail.Quantity * detail.Product.UnitPrice,
+                            date = detail.Order.OrderDate, id = detail.OrderId
+                        };//).Sum(o => o.price);
 
             //var query = (from detail in db.OrderDetails
             //            where startTime <= detail.Order.OrderDate && detail.Order.OrderDate <= endTime

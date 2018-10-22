@@ -47,6 +47,7 @@
     <Compile Include="Delegates.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Generics.cs" />
+    <Compile Include="IMethod.cs" />
     <Compile Include="LambdaExpressions.cs" />
     <Compile Include="LocalMethods.cs" />
     <Compile Include="MethodInvoker.cs" />

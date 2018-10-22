@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class TestDeconstruct
+    class TestDeconstruct : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("---Test Deconstruction");
             Deconstructor deconstructor = new Deconstructor();
@@ -27,6 +27,7 @@ namespace Task1
             Console.WriteLine($"Full deconstruct : {integer3} - {text3} - {isLogical3} - {timeNow3}");
         }
     }
+
     class Deconstructor
     {
         int integer = 1000;

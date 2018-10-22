@@ -7,7 +7,7 @@ namespace Task1
     {
         public static void ReflectionCallStatic(string methodName)
         {
-            Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            var currentAssembly = Assembly.GetExecutingAssembly();
 
             foreach (var type in currentAssembly.DefinedTypes)
             {
@@ -38,6 +38,20 @@ namespace Task1
         {
             Assembly currentAssembly = Assembly.GetExecutingAssembly();
 
+            // 1 variant
+            Type iMethod = typeof(IMethod); // or  = currentAssembly.GetType(methodName); but FULL name
+            MethodInfo testMethod = iMethod.GetMethod(methodName);
+
+            foreach(var type in currentAssembly.DefinedTypes)
+            {
+                if (iMethod.IsAssignableFrom(type) && !type.IsInterface)
+                {
+                    type.GetDeclaredMethod(testMethod.Name)
+                        .Invoke(Activator.CreateInstance(type), null);
+                }
+            }
+
+            /* 2 variant
             foreach (var type in currentAssembly.DefinedTypes)
             {
                 MethodInfo method = type.GetDeclaredMethod(methodName);
@@ -49,7 +63,7 @@ namespace Task1
                     method.Invoke(Activator.CreateInstance(type),
                                   null);
                 }
-            }
+            } */
         }
     }
 }

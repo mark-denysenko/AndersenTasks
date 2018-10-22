@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class PatternMatching
+    class PatternMatching : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("--- Test pattern matching");
             object testValue = 10;

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class LocalMethods
+    class LocalMethods: IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("---Main method in LocalMethods");
             LocalMethod1();

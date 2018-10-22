@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class Generics
+    class Generics : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("--- Test generic stack!");
 

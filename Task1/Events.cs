@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class Events
+    class Events : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("---Events");
             WeatherStation station = new WeatherStation("My weather station");

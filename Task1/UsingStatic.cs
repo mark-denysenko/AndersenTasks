@@ -8,9 +8,9 @@ namespace Task1
 {
     using static MyStatic.UsingStatic;
 
-    class TestClass
+    class TestClass : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine($"---CONST from static class \n\t{nameof(MY_NUMBER)} - {MY_NUMBER}"
                 + $"\n\t{nameof(METRO_TICKET)} - {METRO_TICKET}"

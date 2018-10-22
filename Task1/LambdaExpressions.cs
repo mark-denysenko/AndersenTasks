@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class LambdaExpressions
+    class LambdaExpressions : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("--- Lambda Expressions");
 

@@ -9,9 +9,9 @@ namespace Task1
     public delegate int Calculate(int a, int b);
     public delegate void ShowMessage(string message);
 
-    class Delegates
+    class Delegates : IMethod
     {
-        public static void Method()
+        public void Method()
         {
             Console.WriteLine("---Delegates");
             ShowMessage messages = MessageLow;
