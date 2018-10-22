@@ -18,7 +18,7 @@ namespace Task2_DB
 
         public static void Task()
         {
-            using (ShopDBEntities db = new ShopDBEntities())
+            using (var db = new ShopDBEntities())
             {
                 Task1(db);
 
@@ -105,7 +105,8 @@ namespace Task2_DB
                         orderby p.Average() descending
                         select new { Name = p.Key, AverageMark = p.Average() }).Take(10);
 
-            foreach (var row in query) //.Take(10)) if uncomment - need change query
+            // If uncomment - need change query.
+            foreach (var row in query) //.Take(10)) 
             {
                 Console.WriteLine($" {row.Name} : {row.AverageMark}");
             }
